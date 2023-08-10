@@ -1,0 +1,88 @@
+<div class="container text" *ngIf="user != '' && user != null">
+
+    <div class="row justify-content-md-center">
+
+        <div class="col-md-auto">
+            <div class="card mb-3 m-4 border-0 text-bg-danger">
+                <div class="row justify-content-md-center">
+                    <div class="col ">
+                        <img src={{user.picture}} class="rounded m-3 mx-auto d-block" alt="...">
+                    </div>
+
+                    <div class="col">
+                        <div class="card-body">
+                            <h5 class="card-title display-2">{{user.title | titlecase}} {{user.firstName}}</h5>
+                            <span class="display-4  ">{{user.lastName}}</span>
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+
+                        <div class=" text-center fs-4 fw-lighter text-bg-danger p-3 rounded ">
+                            <div class="row m-3 ">
+
+                                <div class="col">
+                                    Phone : {{user.phone }}
+                                </div>
+                                <div class="col">
+                                    E-Mail : {{user.email | titlecase}}
+                                </div>
+
+                            </div>
+
+                            <div class="row m-3">
+                                <div class="col">
+                                    Address : {{user.location.street}} {{user.location.city}} {{user.location.state}}
+                                    {{user.location.country}}
+                                </div>
+                            </div>
+                            <div class="row m-3">
+                                <div class="col">
+                                    DOB : {{user.dateOfBirth | date}}
+                                </div>
+                                <div class="col">
+                                    Joined on : {{user.registerDate | date}}
+                                </div>
+                                <div class="col">
+                                    Last Updated : {{user.updatedDate | date}}
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row" *ngIf="posts != '' && posts != null">
+        <p class="text-left fs-1 fw-lighter m-5 text-danger">Total Posts : {{posts.length}}</p>
+        <div class="col my-4" *ngFor="let post of posts">
+            <div class="card h-100 m-4" style="width: 22rem;">
+                <img src={{post.image}} class="card-img-top" alt="...">
+                <div class="card-body ">
+                    <span class="fs-3 fw-lighter lh-1 ">{{post.text}}</span>
+                </div>
+                <br>
+                <ul class="list-group list-group-flush">
+                    <div class="card-body ">
+                        <button type="button" class="btn btn-primary mx-2">View Post</button>
+                        <button type="button" class="btn btn-success mx-2">Update</button>
+                        <button type="button" class="btn btn-danger mx-2">Delete</button>
+                    </div>
+                    <li class="list-group-item">Likes : {{post.likes}}</li>
+                    <li class="list-group-item">Tags : {{post.tags }}</li>
+                </ul>
+                <div class="card-footer">
+      <small class="text-body-secondary">Posted on : {{post.publishDate | date}}</small>
+    </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

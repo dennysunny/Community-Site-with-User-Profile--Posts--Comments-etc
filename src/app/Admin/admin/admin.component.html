@@ -1,0 +1,15 @@
+<div class="container-fluid text-left">
+    <div class="row" *ngIf="users != '' && users != null">
+        <p class="text-left fs-1 fw-lighter m-5 " >Total Users : {{users.length}}</p>
+        <div class="col" *ngFor="let user of users">
+            <div class="card  m-4" style="width: 18rem;">
+                <img src={{user.picture}} class="card-img-top" alt="...">
+                <div class="card-body ">
+                    <p class=" fs-3 fw-lighter lh-1 " routerLink="/profile/{{user.id}}" > {{user.title | titlecase}} {{user.firstName}} </p>
+                    <span class="fs-3 fw-lighter lh-1 ">{{user.lastName}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
